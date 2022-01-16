@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import './styles.css';
-import rocketImagePath from './rocket.png';
+import rocketImagePath from '../images/rocket.png';
 
 // The application will create a renderer using WebGL, if possible,
 // with a fallback to a canvas render. It will also setup the ticker
