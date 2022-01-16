@@ -11,15 +11,26 @@ const app = new PIXI.Application({ resizeTo: window });
 // can then insert into the DOM.
 document.body.appendChild(app.view);
 
-let isSpinning = true;
+const $ = document.getElementById.bind(document);
 
-document
-  .getElementById('set-a-course')
-  .addEventListener('click', () => (isSpinning = !isSpinning));
+let settingCourse = true;
+
+function toggleSettingCourse() {
+  $('set-a-course-button').classList.toggle('setting-course');
+  $('cancel-button').classList.toggle('setting-course');
+  $('info-box').classList.toggle('setting-course');
+}
+
+$('set-a-course-button').addEventListener('click', () => {
+  settingCourse = !settingCourse;
+
+  toggleSettingCourse();
+});
+
+$('cancel-button').addEventListener('click', toggleSettingCourse);
 
 app.loader.add('rocket', rocketImagePath).load((loader, resources) => {
   // This creates a texture from a 'rocket.png' image.
-  console.log(resources);
   const rocket = new PIXI.Sprite(resources.rocket.texture);
 
   rocket.width = 50;
@@ -36,7 +47,7 @@ app.loader.add('rocket', rocketImagePath).load((loader, resources) => {
   // Listen for frame updates
   app.ticker.add(() => {
     // each frame we spin the rocket around a bit
-    if (isSpinning) rocket.rotation += 0.1;
+    if (settingCourse) rocket.rotation += 0.1;
     rocket.x = app.renderer.width / 2;
     rocket.y = app.renderer.height / 2;
   });
