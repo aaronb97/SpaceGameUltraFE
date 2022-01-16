@@ -1,2 +1,2 @@
-const test: string[] = ["test 5"];
+const test: string[] = ['Sample logging'];
 console.log(test);
