@@ -14,6 +14,26 @@ canvas {
   z-index: -1;
 }
 
+.body-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel {
+  height: 600px;
+  width: 300px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+  position: relative;
+}
+
 #info-box,
 button {
   background-color: black;
@@ -24,11 +44,12 @@ button {
 }
 
 button {
-  position: fixed;
+  /* position: fixed; */
   padding: 8px 10px;
   font-size: 16px;
   transition-duration: 0.3s;
   cursor: pointer;
+  width: fit-content;
 }
 
 button:hover {
@@ -37,18 +58,18 @@ button:hover {
 }
 
 #set-a-course-button {
-  top: 30%;
-  margin: 5% auto;
-  left: 0;
-  right: 0;
   opacity: 100%;
 }
 
+#spacer-1 {
+  transition-duration: 8ms;
+}
+
+.collapse {
+  flex-grow: 0.001;
+}
+
 #cancel-button {
-  bottom: 40%;
-  margin: 5% auto;
-  left: 0;
-  right: 0;
   opacity: 0%;
   visibility: hidden;
 }
@@ -58,24 +79,48 @@ button:hover {
   visibility: visible;
 }
 
+#go-button {
+  opacity: 0%;
+  visibility: hidden;
+}
+
+#go-button.setting-course {
+  opacity: 100%;
+  visibility: visible;
+}
+
 #set-a-course-button.setting-course {
   opacity: 0%;
   visibility: hidden;
 }
 
+#info-box-group {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  gap: 8px;
+  position: absolute;
+  transition-duration: 0.8s;
+  top: calc(100% - 210px);
+  bottom: 0px;
+  width: 100%;
+}
+
+#info-box-group.setting-course {
+  width: 100%;
+  top: 0px;
+  bottom: 100%;
+}
+
 #info-box {
-  width: 200px;
-  height: 100px;
-  position: fixed;
-  bottom: 30%;
-  margin: 5% auto;
-  left: 0;
-  right: 0;
+  width: 80%;
+  height: 150px;
   transition-duration: 0.8s;
 }
 
 #info-box.setting-course {
-  width: 300px;
+  width: 100%;
   height: 200px;
-  bottom: 50%;
 }

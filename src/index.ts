@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import './styles.css';
-import rocketImagePath from '../images/rocket.png';
+import rocketImagePath from './rocket.png';
 
 // The application will create a renderer using WebGL, if possible,
 // with a fallback to a canvas render. It will also setup the ticker
@@ -19,6 +19,8 @@ function toggleSettingCourse() {
   $('set-a-course-button').classList.toggle('setting-course');
   $('cancel-button').classList.toggle('setting-course');
   $('info-box').classList.toggle('setting-course');
+  $('info-box-group').classList.toggle('setting-course');
+  $('go-button').classList.toggle('setting-course');
 }
 
 $('set-a-course-button').addEventListener('click', () => {
