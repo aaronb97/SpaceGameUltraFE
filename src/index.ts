@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseConfig } from './firebaseConfig';
+import axios from 'axios';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -9,7 +10,11 @@ const googleAuthProvider = new GoogleAuthProvider();
 
 auth.onIdTokenChanged(async (user) => {
   const token = await user?.getIdToken();
-  console.log(token);
+  axios.post('http://localhost:3000/login', undefined, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
 });
 
 document
