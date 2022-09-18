@@ -10,7 +10,7 @@ const googleAuthProvider = new GoogleAuthProvider();
 
 auth.onIdTokenChanged(async (user) => {
   const token = await user?.getIdToken();
-  axios.post('http://localhost:3000/login', undefined, {
+  axios.post(`${process.env.SERVER_URL}/login`, undefined, {
     headers: {
       authorization: `Bearer ${token}`,
     },
