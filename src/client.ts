@@ -10,7 +10,7 @@ class Client {
     }
 
     const token = await user.getIdToken();
-    axios.post(`${process.env.SERVER_URL}/login`, undefined, {
+    return axios.post(`${process.env.SERVER_URL}/login`, undefined, {
       headers: {
         authorization: `Bearer ${token}`,
       },
